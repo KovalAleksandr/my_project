@@ -1,0 +1,17 @@
+﻿@model Product
+<div class="row">
+
+
+    <div class="col-md-12">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body" style="padding:0;">
+                <h5 class="card-title">Название: @Model.Name</h5>
+                <img src="@Model.ImgUrl" style="width:100%;height:612px;background-size:cover" />
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<a class="a-details-back" asp-controller="Product" asp-action="Index">Назад</a>

@@ -1,0 +1,48 @@
+﻿@model WebApplication30.Models.Product
+
+<h2>Create New Product</h2>
+
+@using (Html.BeginForm("Create", "Product", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Price)
+        @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ImgUrl)
+        @Html.TextBoxFor(model => model.ImgUrl, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Discount)
+        @Html.TextBoxFor(model => model.Discount, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description)
+        @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.CardText)
+        @Html.TextAreaFor(model => model.CardText, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.CardBackground)
+        @Html.TextAreaFor(model => model.CardBackground, new { @class = "form-control" })
+    </div>
+    <div hidden class="form-group">
+        @Html.LabelFor(model => model.CartItems)
+        @Html.TextAreaFor(model => model.CartItems, new { @class = "form-control" })
+    </div>
+    <div class="d-flex gap-1">
+        <input type="submit" value="Create" class="btn" />
+        <a asp-action="Index" class="btn">Cancel</a>
+    </div>
+    
+}
