@@ -77,29 +77,28 @@
         }
     </div>
     <script>
-        // Функция для обновления итоговой цены на основе количества
+        
         function updateTotalPrice(productId) {
             var quantity = parseInt($("#quantity_" + productId).val());
             var productPrice = parseFloat($("#productPrice_" + productId).text().replace(",", "."));
-            var totalPrice = (quantity * productPrice).toFixed(2); // Округляем итоговую цену до двух знаков после запятой
+            var totalPrice = (quantity * productPrice).toFixed(2);
             $("#totalPrice_" + productId).text(totalPrice);
         }
 
-        // Функция для открытия попапа и заполнения данными
+       
         function openPopup(productId, productName, productPrice) {
-            // Обновляем данные в попапе
+           
             $("#productName_" + productId).text(productName);
             $("#productPrice_" + productId).text(productPrice);
-            $("#totalPrice_" + productId).text(productPrice); // Начальная итоговая цена равна цене товара
+            $("#totalPrice_" + productId).text(productPrice); 
 
-            // Сбрасываем количество в поле ввода на 1
+          
             $("#quantity_" + productId).val(1);
 
-            // Обновляем итоговую цену на основе начального количества (1)
+          
             updateTotalPrice(productId);
         }
 
-        // Функция для добавления товара в корзину
         function addToCart(productId) {
             var quantity = parseInt($("#quantity_" + productId).val());
             if (isNaN(quantity) || quantity <= 0) {
@@ -107,7 +106,7 @@
                 return;
             }
 
-            // Отправить запрос на сервер для добавления товара в корзину
+          
             var url = '@Url.Action("AddToCart", "Cart")';
             var data = { id: productId, quantity: quantity };
 
@@ -116,18 +115,18 @@
                 type: "POST",
                 data: data,
                 success: function (response) {
-                    // Обработать успешный ответ от сервера (если необходимо)
+                  
                     console.log("Товар успешно добавлен в корзину!");
-                    // Перезагрузить страницу, чтобы обновить корзину
+                   
                     window.location.reload();
                 },
                 error: function () {
-                    // Обработать ошибку (если необходимо)
+                    
                     console.log("Ошибка при добавлении товара в корзину!");
                 }
             });
 
-            // Закрыть попап (если есть)
+       
             var modal = $("#popupModal_" + productId);
             if (modal) {
                 modal.modal("hide");
@@ -149,14 +148,14 @@
                 });
             }
 
-            // Initial update
+            
             updateImgHeight();
 
-            // Add event listener for window resize
+           
             window.addEventListener('resize', updateImgHeight);
         }
 
-        // Call the function to set up the initial state and event listener
+   
         calcImgHeight();
 
         function calcButtonsWidth() {
@@ -169,19 +168,16 @@
                 });
             }
 
-            // Initial update
+            
             updateButtonsWidth();
 
-            // Add event listener for window resize
+           
             window.addEventListener('resize', updateButtonsWidth);
         }
 
-        // Call the function to set up the initial state and event listener
+       
         calcButtonsWidth();
-        
-        //Animation
-        const cards = document.querySelectorAll('.col-md-3');
-        cards.forEach(item => item.setAttribute('data-aos', 'fade-up'));
+
         
     </script>
 

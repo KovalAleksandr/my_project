@@ -27,7 +27,7 @@ namespace WebApplication30.Models
         public int Quantity { get; set; }
         public decimal DiscountedPrice { get; set; }
         public decimal TotalPrice { get; set; }
-        // Навигационное свойство для связи с корзиной
+        
         public List<CartItem> CartItems { get; set; }
     }
 }

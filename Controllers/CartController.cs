@@ -29,9 +29,9 @@ using Microsoft.AspNetCore.Mvc;
                 {
                     decimal discountedPrice = product.Price * (100 - product.Discount) / 100;
                     totalPrice += discountedPrice * cartItem.Quantity;
-                    cartItem.Product = product; // Привязываем товар к элементу корзины
-                    cartItem.Product.DiscountedPrice = discountedPrice; // Устанавливаем цену со скидкой для элемента корзины
-                    cartItem.Product.TotalPrice = discountedPrice * cartItem.Quantity; // Устанавливаем общую цену для элемента корзины
+                    cartItem.Product = product; 
+                    cartItem.Product.DiscountedPrice = discountedPrice; 
+                    cartItem.Product.TotalPrice = discountedPrice * cartItem.Quantity; 
                 }
             }
 

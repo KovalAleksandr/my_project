@@ -61,7 +61,7 @@ namespace WebApplication30.Controllers
 
             if (product == null)
             {
-                return NotFound(); // Возвращаем страницу 404, если продукт не найден
+                return NotFound(); 
             }
 
             return View(product);
